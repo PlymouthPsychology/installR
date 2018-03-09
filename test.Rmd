@@ -1,0 +1,59 @@
+---
+title: "Untitled"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown test
+
+
+
+```{r}
+# should run a model and show a plot
+library(rstanarm)
+m1 <- stan_lmer(Reaction~Days+(1|Subject), data=lme4::sleepstudy)
+summary(m1)
+plot(m1)
+
+```
+
+
+
+```{r}
+# should be 4.5
+library(dplyr)
+lme4::sleepstudy %>%
+  summarize(mean(Days))
+```
+
+
+```{r}
+# should see a plot
+library(ggplot2)
+mtcars %>%
+  ggplot(aes(mpg, wt)) + geom_point() + ggthemes::theme_tufte()
+```
+
+
+
+\tiny
+
+
+
+```{r}
+library(pander)
+ip <- as.data.frame(installed.packages()[,c(1,3:4)])
+rownames(ip) <- NULL
+ip <- ip[is.na(ip$Priority),1:2,drop=FALSE]
+ip %>%
+	pander
+```
+
+
+
+
+
+
