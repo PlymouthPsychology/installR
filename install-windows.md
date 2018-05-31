@@ -1,6 +1,12 @@
-Based on:
 
-https://github.com/stan-dev/rstan/wiki/Installing-RStan-on-Windows#r
+# Installation instructions for Windows
+
+
+These instructions are for a complete install, matching the R packages installed on the University systems.
+
+If you only need a minimal installation you can skip many of the steps: just do step 0, 1,and 6. 
+
+
 
 
 # 0
@@ -22,6 +28,7 @@ https://cloud.r-project.org/bin/windows/Rtools/Rtools34.exe
 Accept defaults, but see notes in page github link here https://github.com/stan-dev/rstan/wiki/Installing-RStan-on-Windows#toolchain  about clicking checkbox to add to system PATH. 
 THIS IS IMPORTANT AND STAN WON'T WORK WITHOUT IT
 
+See https://github.com/stan-dev/rstan/wiki/Installing-RStan-on-Windows#r
 
 
 # 3
@@ -32,13 +39,12 @@ Accept all installer defaults
 
 
 
-
-
 # 4 
 
 Execute the following R code FOR EACH USER INDIVIDUALLY. This needs to be run such that each user gets a copy of it... or at least gets a copy of it made in their home directory:
 
 
+```
 dotR <- file.path(Sys.getenv("HOME"), ".R")
 if (!file.exists(dotR)) 
   dir.create(dotR)
@@ -52,9 +58,7 @@ cat("\nCXXFLAGS=-O3 -Wno-unused-variable -Wno-unused-function",
 cat('Sys.setenv(BINPREF = "C:/Rtools/mingw_$(WIN)/bin/")',
     file = file.path(Sys.getenv("HOME"), ".Rprofile"), 
     sep = "\n", append = TRUE)
-
-
-
+```
 
 
 
@@ -65,14 +69,15 @@ install.packages("rstan", dependencies=TRUE)
 install.packages("rstanarm")
 
 
-Check all is OK by running this R code in RStydio:
+Check all is OK by running this R code in RStudio:
 
+```
 fx <- inline::cxxfunction( signature(x = "integer", y = "numeric" ) , '
 	return ScalarReal( INTEGER(x)[0] * REAL(y)[0] ) ;
 ' )
 fx( 2L, 5 ) # should be 10
 
-
+```
 
 
 
@@ -102,12 +107,11 @@ Run https://anorien.csc.warwick.ac.uk/mirrors/CTAN/systems/win32/miktex/setup/se
 
 
 Then run the installer again, 
-- choose 'install' not download
+
+- choose 'install' not 'download'
 - choose the files previously downloaded into the users' directory
 - choose complete
 - select defaults and execute
-
-
 
 
 
