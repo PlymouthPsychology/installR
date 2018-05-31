@@ -33,6 +33,7 @@ R --vanilla < packages-minimal.R
 R --vanilla < packages-others.R
 R --vanilla < check-versions.R
 
+} # end the install function
 
 # Now that we know the whole script has downloaded, run it.
 _ "$0" "$@"
