@@ -3,6 +3,11 @@ Based on:
 https://github.com/stan-dev/rstan/wiki/Installing-RStan-on-Windows#r
 
 
+# 0
+
+Download the installR project file from: https://github.com/PlymouthPsychology/installR/archive/master.zip and expand the package. Open the new (expanded) folder.
+
+
 # 1 
 Install R Base:
 https://cloud.r-project.org/bin/windows/base/R-3.4.4-win.exe
