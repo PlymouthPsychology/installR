@@ -29,9 +29,9 @@ sudo apt-get install -y libssl-dev
 sudo apt-get install -y libcurl4-openssl-dev 
 sudo apt-get install -y libxml2-dev
 
-R --vanilla < packages-minimal.R
-R --vanilla < packages-others.R
-R --vanilla < check-versions.R
+sudo R --vanilla < packages-minimal.R
+sudo R --vanilla < packages-others.R
+sudo R --vanilla < check-versions.R
 
 } # end the install function
 
