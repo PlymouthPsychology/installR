@@ -1,56 +1,80 @@
 ---
-title: "Untitled"
-output: pdf_document
+title: "Checks that R install has worked properly"
+output: html_document
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(testthat)
 ```
 
-## R Markdown test
+The output of this file (an html document) can be checked against the version in the github repo to make sure everything is as expected.
 
 
+## Packages test
+
+```{r, message=F}
+source('check-versions.R')
+```
+
+
+
+
+## Tidyverse and dplyr
+
+```{r}
+library(tidyverse)
+expect_equal(lme4::sleepstudy %>% summarize(m=mean(Days)) %>% pull(m), 4.5)
+```
+
+
+```{r}
+plt2 <- mtcars %>%
+  ggplot(aes(mpg, wt)) + geom_point() + 
+  ggthemes::theme_tufte()
+expect_is(plt2, 'ggplot')
+plt2
+```
+
+
+
+
+## RStan
 
 ```{r}
 # should run a model and show a plot
 library(rstanarm)
 m1 <- stan_lmer(Reaction~Days+(1|Subject), data=lme4::sleepstudy)
-summary(m1)
-plot(m1)
-
+plt <- plot(m1)
+expect_is(m1, 'stanreg')
+expect_is(m1, 'glm')
+expect_is(plt, 'ggplot')
+plt
 ```
 
 
 
-```{r}
-# should be 4.5
-library(dplyr)
-lme4::sleepstudy %>%
-  summarize(mean(Days))
-```
 
-
-```{r}
-# should see a plot
-library(ggplot2)
-mtcars %>%
-  ggplot(aes(mpg, wt)) + geom_point() + ggthemes::theme_tufte()
-```
-
-
-
-\tiny
-
-
+## Full Package listing
 
 ```{r}
 library(pander)
-ip <- as.data.frame(installed.packages()[,c(1,3:4)])
-rownames(ip) <- NULL
-ip <- ip[is.na(ip$Priority),1:2,drop=FALSE]
-ip %>%
-	pander
+ip <- installed.packages(fields = c("Version")) %>%
+  as.tibble() %>%
+  select(Package, Version)
+
+tab <- ip %>%
+	pander::pandoc.table.return()
+
+expect_is(tab, "character")
+expect_match(tab, "colorspace") # match some of the output
+expect_match(tab, "tidyverse")
+
+ip %>% 
+  pander()
 ```
+
 
 
 

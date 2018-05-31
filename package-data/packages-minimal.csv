@@ -1,0 +1,12 @@
+Package
+afex
+BayesFactor
+car
+data.table
+devtools
+effsize
+emmeans
+ez
+lmerTest
+psych
+tidyverse

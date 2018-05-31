@@ -1,4 +1,13 @@
-#!bash
+#! /bin/bash
+
+# we steal other things from here: https://install.sandstorm.io too
+if test -z "$BASH_VERSION"; then
+  echo "Please run this script using bash, not sh or any other shell." >&2
+  exit 1
+fi
+
+# wrap the entire script in a big function which we only call at the very end
+_() {
 
 echo -e "Installing R and various other packages needed...\n\n"
 echo -e "This may take some time: up to 1 hour in some cases\n\n"
@@ -19,3 +28,8 @@ R --vanilla < check.R
 
 echo "Installation complete"
 open ~/Applications/RStudio.app 
+
+}
+
+# Now that we know the whole script has downloaded, run it.
+_ "$0" "$@"
