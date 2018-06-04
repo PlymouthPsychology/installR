@@ -2,46 +2,53 @@
 # Installation instructions for Windows
 
 
-These instructions are for a complete install, matching the R packages installed on the University systems.
+These instructions are for a complete install, matching the R packages and setup on the University systems.
 
-If you only need a minimal installation you can skip many of the steps: just do step 0, 1,and 6. 
-
-
+If you only need a simple installation you can skip steps 3, 5, 7, 8 and 9.
 
 
-# 0
 
-Download the installR project file from: https://github.com/PlymouthPsychology/installR/archive/master.zip and expand the package. Open the new (expanded) folder.
+# 1
 
+Download the `installR` project file from: https://github.com/PlymouthPsychology/installR/archive/master.zip 
 
-# 1 
-Install R Base:
-https://cloud.r-project.org/bin/windows/base/R-3.4.4-win.exe
-Accept all installer defaults, except uncheck make desktop icon
+Expand the package. 
 
+Open the new (expanded) folder.
 
 
 # 2
-Install Rtools:
-https://cloud.r-project.org/bin/windows/Rtools/Rtools34.exe
 
-Accept defaults, but see notes in page github link here https://github.com/stan-dev/rstan/wiki/Installing-RStan-on-Windows#toolchain  about clicking checkbox to add to system PATH. 
-THIS IS IMPORTANT AND STAN WON'T WORK WITHOUT IT
+Install the R Base System from: https://cloud.r-project.org/bin/windows/base/R-3.4.4-win.exe
 
-See https://github.com/stan-dev/rstan/wiki/Installing-RStan-on-Windows#r
+Use this version (and not a more recent one) if you want to be sure of compatibility with the University installed versions.
+
+Accept all installer defaults.
+
 
 
 # 3
 
-Install Rstudio:
-https://download1.rstudio.org/RStudio-1.1.383.exe
+Install Rtools:
+
+https://cloud.r-project.org/bin/windows/Rtools/Rtools34.exe
+
+Accept all the installer defaults, except be sure to click the checkbox to "add to system PATH". 
+This is important and some packages (Stan) won't work without it. (see https://github.com/stan-dev/rstan/wiki/Installing-RStan-on-Windows#toolchain)
+
+
+
+# 4
+
+Install Rstudio from:  https://download1.rstudio.org/RStudio-1.1.383.exe
+
 Accept all installer defaults
 
 
 
-# 4 
+# 5 
 
-Execute the following R code FOR EACH USER INDIVIDUALLY. This needs to be run such that each user gets a copy of it... or at least gets a copy of it made in their home directory:
+Run the following snippet of R code:
 
 
 ```
@@ -61,37 +68,32 @@ cat('Sys.setenv(BINPREF = "C:/Rtools/mingw_$(WIN)/bin/")',
 ```
 
 
-
-# 5 
-Install Rstan by running this R code in RStudio:
-
-install.packages("rstan", dependencies=TRUE)
-install.packages("rstanarm")
-
-
-Check all is OK by running this R code in RStudio:
-
-```
-fx <- inline::cxxfunction( signature(x = "integer", y = "numeric" ) , '
-	return ScalarReal( INTEGER(x)[0] * REAL(y)[0] ) ;
-' )
-fx( 2L, 5 ) # should be 10
-
-```
-
-
-
-# 6 
-
-Install other R packages by opening and running `packages-minimal.R` and `packages-others.R` in RStudio. BE SURE TO QUIT RSTUDIO FIRST THOUGH AND DON"T SAVE THE WORKSPACE WHEN PROMPTED
-
-
-Run `check-versions.R`
+Note: If you are installing on a multi-user system (or for TIS, when installing on the university-wide image) make sure to execute the following R code for each individual user. This needs to be run such that each user gets the changes made to the RProfile.
 
 
 
 
-# 7 
+# 6
+
+Install the minimal set of R packages by opening and running `packages-minimal.R` (e.g. from inside RStudio).
+
+
+# 7
+
+You can install other recommended packages by running `packages-others.R`.
+
+(Note: If you already had RStduio open, quit it and then reopen before running this).
+
+
+
+
+# 8
+
+Run `check-versions.R` to check all packages installed OK.
+
+
+
+# 9
 
 Install Tex to allow RMarkdown documents to be built:
 
@@ -114,11 +116,7 @@ Then run the installer again,
 - select defaults and execute
 
 
-
-
-# 8 
-
-To check the Tex install and everything works, open the check-packages.Rmd file and press 'Knit'. This should output a pdf (which you could send me to check, or compare with the version I sent. You might have to quit Rstudio and reopen it first.
+To check the Tex install and everything works, open the check-packages.Rmd file and press 'Knit'. This should output a pdf.
 
 
 
