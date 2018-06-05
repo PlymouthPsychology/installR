@@ -15,10 +15,15 @@ It's best to have had some experience of RStudio before trying to install it on 
 R is the application that does all the hard sums in the background. We need to install this first:
 
 a. Copy this address into your web browser to download R: https://cloud.r-project.org/bin/windows/base/R-3.4.4-win.exe
+
 b. Wait for the download to finish (this may take a while, depending on the speed of your internet connection).
+
 c. Click on 'save'.
+
 d. Once downloaded, click on 'run'. 
+
 e. Click 'yes' to "Do you wan to allow this app...".
+
 f. Click 'OK', and then 'Next' repeatedly, and then 'Finish'.
 
 ### Install RStudio
@@ -26,10 +31,15 @@ f. Click 'OK', and then 'Next' repeatedly, and then 'Finish'.
 RStudio is an application that allows us to use R more easily. We need to install this next:
 
 a. Copy this address into your web browser to download RStudio: https://download1.rstudio.org/RStudio-1.1.383.exe
+
 b. Wait for the download to finish (this may take a while, depending on the speed of your internet connection)
+
 c. Click on 'save'.
+
 d. Once downloaded, click on 'run'. 
+
 e. Click 'yes' to "Do you want to allow this app...".
+
 f. Click 'Next' repeatedly, then 'Install', and then 'Finish'.
 
 ### Install packages
@@ -37,6 +47,7 @@ f. Click 'Next' repeatedly, then 'Install', and then 'Finish'.
 _R_ has over 12,000 different _packages_, which allow us to do almost anything in _R_. For your Stage 1 courses, we just need the `tidyverse`, `effsize`, and `BayesFactor` packages. We'll install those now:
 
 a. Run RStudio (it'll be on your 'Start' menu )
+
 b. Run the following commands from the console window in RStudio:
 
 ```
@@ -44,6 +55,7 @@ options("repos" = "https://mran.microsoft.com/snapshot/2018-05-01")
 minimal <- c("tidyverse", "effsize", "BayesFactor")
 install.packages(minimal)
 ```
+
 c. Wait for the packages to be installed. This will take **at least 7 minutes** -- longer unless your machine and internet connection are very fast.
 
 ### 4. That's it!
