@@ -4,7 +4,7 @@ _Ben Whalley and Andy Wills, June 2018._
 These instructions are for **2018/19 Stage 1 undergraduate students** with a **Windows** computer.
 
 ## Before you start...
-It's best to have had some experience of RStudio before trying to install it on your own machine, otherwise Step 3 probably won't make much sense. If you haven't yet completed the [Introduction to RStudio](http://www.willslab.org.uk/rminr/intro-rstudio.html), and [Exploring Incomes](http://www.willslab.org.uk/rminr/exploring-incomes.html) exercises, please do so now.
+It's best to have had some experience of RStudio before trying to install it on your own machine, otherwise Step 3 probably won't make much sense. If you haven't yet completed the [Introduction to RStudio](http://www.willslab.org.uk/rminr/intro-rstudio.html), and [Exploring Data](http://www.willslab.org.uk/rminr/exploring-incomes.html) exercises, please do so now.
 
 ## How to install
 
