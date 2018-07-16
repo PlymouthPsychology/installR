@@ -3,7 +3,7 @@ library(devtools)
 
 # Set the CRAN repo to a specific date to effectively snapshop and
 # avoid compatibility issues.
-options("repos" = "https://mran.microsoft.com/snapshot/2018-05-01")
+options("repos" = "https://mran.microsoft.com/snapshot/2018-07-01")
 
 suggested <- read_csv("package-data/packages-suggested.csv") %>% pull(Package)
 bayes <- read_csv("package-data/packages-bayes.csv") %>% pull(Package)

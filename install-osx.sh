@@ -23,8 +23,15 @@ brew update
 brew install libxml2 openssl openssl librsvg libressl R
 brew cask install rstudio
 
-R --vanilla < packages.R
-R --vanilla < check.R
+
+if test -z "$BASH_VERSION"; then
+  echo "Please run this script using bash, not sh or any other shell." >&2
+  exit 1
+fi
+
+R --vanilla < packages-minimal.R
+R --vanilla < packages-others.R
+R --vanilla < check-versions.R
 
 echo "Installation complete"
 open ~/Applications/RStudio.app 

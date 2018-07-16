@@ -33,14 +33,15 @@ Install Rtools:
 
 https://cloud.r-project.org/bin/windows/Rtools/Rtools34.exe
 
-Accept all the installer defaults, except be sure to click the checkbox to "add to system PATH". 
+Accept all the installer defaults. Be sure to click the checkbox to "add to system PATH". 
+
 This is important and some packages (Stan) won't work without it. (see https://github.com/stan-dev/rstan/wiki/Installing-RStan-on-Windows#toolchain)
 
 
 
 # 4
 
-Install Rstudio from:  https://download1.rstudio.org/RStudio-1.1.383.exe
+Install RStudio from:  https://download1.rstudio.org/RStudio-1.1.383.exe
 
 Accept all installer defaults
 
@@ -55,6 +56,7 @@ Run the following snippet of R code:
 dotR <- file.path(Sys.getenv("HOME"), ".R")
 if (!file.exists(dotR)) 
   dir.create(dotR)
+  
 M <- file.path(dotR, "Makevars")
 if (!file.exists(M)) 
   file.create(M)
@@ -78,11 +80,12 @@ Note: If you are installing on a multi-user system (or for TIS, when installing 
 Install the minimal set of R packages by opening and running `packages-minimal.R` (e.g. from inside RStudio).
 
 
+
 # 7
 
 You can install other recommended packages by running `packages-others.R`.
 
-(Note: If you already had RStduio open, quit it and then reopen before running this).
+(Note: If you already had RStudio open, quit it and then reopen before running this).
 
 
 
@@ -99,7 +102,7 @@ Install Tex to allow RMarkdown documents to be built:
 
 First use the net installer to download the install files:
 
-Run https://anorien.csc.warwick.ac.uk/mirrors/CTAN/systems/win32/miktex/setup/setup-2.9.6406-x64.exe
+Run https://anorien.csc.warwick.ac.uk/mirrors/CTAN/systems/win32/miktex/setup/windows-x64/setup-2.9.6637-x64.exe
 
 - Accept conditions
 - Choose 'download'
