@@ -30,8 +30,10 @@ gtools
 Hmisc	
 infuser
 janitor
+jsonlite
 jtools
 knitr
+later
 lavaan	
 lmerTest
 lsr
@@ -46,9 +48,11 @@ mice
 miniCRAN
 MuMIn
 mvtnorm
+naturalsort
 officer
 pander
 png
+purrrlyr
 purrrlyr
 pwr
 reshape2
@@ -67,5 +71,6 @@ tufte
 usethis
 waffle
 wesanderson
+whirl
 whisker
 zoo

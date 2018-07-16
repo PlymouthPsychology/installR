@@ -7,6 +7,7 @@ devtools
 effsize
 emmeans
 ez
+irr
 lmerTest
 psych
 tidyverse
