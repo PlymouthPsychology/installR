@@ -8,6 +8,7 @@ effsize
 emmeans
 ez
 irr
+lme4
 lmerTest
 psych
 tidyverse
