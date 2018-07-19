@@ -28,6 +28,10 @@ sudo apt-get install -y libssl-dev
 sudo apt-get install -y libcurl4-openssl-dev 
 sudo apt-get install -y libxml2-dev
 
+# note this will install latest packaged JAGS... see windows install intructions to match version exactly
+# http://mcmc-jags.sourceforge.net
+sudo apt-get install -y jags
+
 
 git clone https://github.com:80/PlymouthPsychology/installR
 cd installR
