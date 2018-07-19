@@ -4,3 +4,5 @@ brms
 rstan
 rstanarm
 rjags
+R2jags
+ggmcmc
