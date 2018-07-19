@@ -1,0 +1,181 @@
+---
+title: "Checks that Jags install has worked properly and can be called from R"
+output: html_document
+author: Julian Stander
+---
+
+```{r}
+library(ggmcmc)
+library(R2jags)
+```
+
+
+```{r}
+#
+# Data on the age and height of six children
+#
+x <- c(53,43,58,38,49,55) # Age (months)
+y <- c(98,91,104,89,97,99) # Height (cms)
+#
+# Plot the data
+#
+plot(x, y, xlab = "Age (months)", ylab = "Height (cms)", pch = 16)
+#
+########################################
+#
+# ******* BUGS code ******
+#
+Bayesian_regression_model <- function(){
+    for(i in 1:n){ # n is the sample size (number of data points)
+#
+# Data model or likelihood part
+#
+         y[i] ~ dnorm(mu[i], tau) # Parametrized by the precision tau = 1 / sigma^2
+         mu[i] <- beta_0 + beta_1*x[i]
+     }
+#
+# Priors
+#
+     beta_0 ~ dnorm(0.0, 1.0E-4) # Prior on beta_0 is normal with low precision
+     beta_1 ~ dnorm(0.0, 1.0E-4) # Prior on beta_1 is normal with low precision
+     tau ~ dgamma(1.0E-3, 1.0E-3) # Prior on tau is gamma with small shape and rate parameters
+#
+# Definition of sigma
+#
+     sigma <- 1.0 / sqrt(tau)
+}
+#
+#
+########################################
+#
+# Perform inference
+#
+# ---------------------------------------------
+#
+# Prepare the data for jags
+# The above BUGS code uses n, y and x
+#
+n <- length(x) # Sample size
+data_Regression <- list("x", "y", "n")
+#
+# ---------------------------------------------
+#
+# Perform Bayesian inference about 
+# beta_0, beta_1, tau and sigma
+#
+Bayesian_Regression <- jags(data = data_Regression, 
+            parameters.to.save = c("beta_0", "beta_1", "tau", "sigma"), 
+            n.iter = 100000, 
+            n.chains = 3,
+            model.file = Bayesian_regression_model)
+#
+# ---------------------------------------------
+#
+```
+
+## Summarize the posterior distribution 
+
+```{r}
+print(Bayesian_Regression, intervals = c(0.025, 0.5, 0.975))
+#
+```
+
+## Graphical output
+```{r}
+plot(Bayesian_Regression)
+```
+
+```{r}
+Bayesian_Regression$BUGSoutput$DIC
+```
+
+# Some plots
+
+
+```{r}
+# Create an mcmc object
+Bayesian_Regression.mcmc <- as.mcmc(Bayesian_Regression)
+#
+# Create a ggs object
+#
+Bayesian_Regression.ggs <- ggs(Bayesian_Regression.mcmc)
+```
+
+
+```{r}
+ggs_traceplot(Bayesian_Regression.ggs)
+```
+
+```{r}
+ggs_density(Bayesian_Regression.ggs)
+```
+
+```{r}
+ggs_density(Bayesian_Regression.ggs, family = "^beta")
+```
+
+```{r}
+ggs_autocorrelation(Bayesian_Regression.ggs) + ggtitle("Autocorrelation Functions")
+```
+
+```{r}
+geweke.diag(Bayesian_Regression.mcmc)
+```
+
+```{r}
+ggs_geweke(Bayesian_Regression.ggs)
+```
+
+# The Gelman-Rubin Diagnostic
+
+```{r}
+# Initial values overdispersed with respect to the posterior
+#
+init_values_Regression <- list(list(beta_0 = 50, beta_1 = 0, tau = 0.01), 
+                    list(beta_0 = 50, beta_1 = 0, tau = 2), 
+                    list(beta_0 = 50, beta_1 = 2, tau = 0.01), 
+                    list(beta_0 = 50, beta_1 = 2, tau = 2),
+                    list(beta_0 = 75, beta_1 = 0, tau = 0.01), 
+                    list(beta_0 = 75, beta_1 = 0, tau = 2), 
+                    list(beta_0 = 75, beta_1 = 2, tau = 0.01), 
+                    list(beta_0 = 75, beta_1 = 2, tau = 2))
+#
+Bayesian_Regression_2 <- jags(data = data_Regression, 
+            inits = init_values_Regression,
+            parameters.to.save = c("beta_0", "beta_1", "tau", "sigma"), 
+            n.iter = 100000, 
+            n.chains = 8, # corresponding to 8 sets of initial values
+            model.file = Bayesian_regression_model)
+#
+# Turn into an mcmc object
+#
+Bayesian_Regression_2.mcmc <- as.mcmc(Bayesian_Regression_2)
+```
+
+```{r}
+gelman.diag(Bayesian_Regression_2.mcmc)
+```
+
+```{r}
+gelman.plot(Bayesian_Regression_2.mcmc)
+```
+
+
+# The Raftery-Lewis Diagnostic, requires the output from one long chain
+```{r}
+Bayesian_Regression_3 <- jags(data = data_Regression, 
+            parameters.to.save = c("beta_0", "beta_1", "tau", "sigma"), 
+            n.iter = 500000, # LONG
+            n.chains = 1, # One chain only
+            n.thin = 1, # No thinning (thinning interval 1)
+            n.burnin = 0, # No burn-in
+            model.file = Bayesian_regression_model)
+#
+# Turn into an mcmc object
+#
+Bayesian_Regression_3.mcmc <- as.mcmc(Bayesian_Regression_3)
+```
+
+```{r}
+raftery.diag(Bayesian_Regression_3.mcmc)
+```
