@@ -1,5 +1,4 @@
 Package
-here
 AER
 apa
 arm
@@ -29,6 +28,7 @@ ggthemes
 gridExtra
 gtable
 gtools
+here
 Hmisc	
 infuser
 irr
@@ -38,6 +38,7 @@ jtools
 knitr
 later
 lavaan	
+lexicon
 lmerTest
 lsr
 margins
@@ -82,4 +83,6 @@ wesanderson
 whirl
 whisker
 zoo
-
+simr
+rmdformats
+rticles
