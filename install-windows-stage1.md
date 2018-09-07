@@ -14,7 +14,7 @@ It's best to have had some experience of RStudio before trying to install it on 
 
 R is the application that does all the hard sums in the background. We need to install this first:
 
-a. Copy this address into your web browser to download R: https://cloud.r-project.org/bin/windows/base/R-3.4.4-win.exe
+a. Copy this address into your web browser to download R: https://cloud.r-project.org/bin/windows/base/old/3.5.0/R-3.5.0-win.exe
 
 b. Wait for the download to finish (this may take a while, depending on the speed of your internet connection).
 
