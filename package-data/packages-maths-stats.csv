@@ -30,6 +30,7 @@ GPseq
 imager
 impute
 inegiR
+ineq
 INLA
 labelled
 LexisPlotR
@@ -51,6 +52,7 @@ rmdformats
 rsprng
 rstudio
 rticles
+rtweet
 sdcMicroGUI
 shape
 shinyapps
@@ -59,8 +61,11 @@ showtextdb
 SML
 summaryTools
 sysfonts
+tidytext
 TinnR
+tm
 twitteR
+ukbabynames
 unmarked
 uuid
 VaR
@@ -68,5 +73,7 @@ vipor
 VisualResume
 WDI
 webshot
+wordcloud
+wordcloud2
 xlsReadWrite
 yarrr
