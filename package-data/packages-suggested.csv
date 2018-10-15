@@ -1,6 +1,7 @@
 Package
 AER
 apa
+apaTables
 arm
 assertive
 assertthat
@@ -88,3 +89,7 @@ rmdformats
 rticles
 bizdays
 formatR
+urlshorteneR
+rio
+girstr
+ggpubr
