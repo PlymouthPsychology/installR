@@ -20,7 +20,7 @@ cd installR
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
-brew install libxml2 openssl openssl librsvg libressl R
+brew install libxml2 openssl openssl librsvg libressl R pandoc
 brew cask install rstudio
 
 # note, this will install the latest, but match plymouth install exactly see version specified in windows instructions
