@@ -119,7 +119,7 @@ To check the Tex install and everything works, open the check-packages.Rmd file 
 
 
 
-# 10 Install JAGS (specific to school of Mathematics and Statistics)
+# 9 Install JAGS (specific to school of Mathematics and Statistics)
 
 Install JAGS using the installer hosted at: <https://sourceforge.net/projects/mcmc-jags/files/JAGS/4.x/Windows/JAGS-4.3.0.exe/download>
 
