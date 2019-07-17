@@ -90,13 +90,8 @@ You can install other recommended packages by running `packages-others.R`.
 
 
 
+
 # 8
-
-Run `check-versions.R` to check all packages installed OK.
-
-
-
-# 9
 
 Install Tex to allow RMarkdown documents to be built:
 

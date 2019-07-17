@@ -34,7 +34,6 @@ fi
 
 R --vanilla < packages-minimal.R
 R --vanilla < packages-others.R
-R --vanilla < check-versions.R
 
 echo "Installation complete"
 open ~/Applications/RStudio.app 
