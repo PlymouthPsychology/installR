@@ -32,6 +32,7 @@ formatR
 gapminder
 gdata
 GGally
+ggcorrplot
 ggpubr
 ggrepel
 ggridges
@@ -42,15 +43,16 @@ gridExtra
 gtable
 gtools
 here
-Hmisc   
+Hmisc
 infuser
 irr
 janitor
 jsonlite
 jtools
+kableExtra
 knitr
 later
-lavaan  
+lavaan
 lexicon
 lmerTest
 lsr
@@ -72,10 +74,12 @@ naturalsort
 nlme
 officer
 openintro
+osfr
 pander
 ParetoTI
 plotrix
 png
+psy
 purrrlyr
 pwr
 reshape2
@@ -90,6 +94,7 @@ selectr
 semPlot
 semTools
 simr
+sjstats
 skimr
 sn
 survival
@@ -99,6 +104,7 @@ tsne
 tufte
 umap
 urlshorteneR
+userfriendlyscience
 usethis
 vegan
 waffle
