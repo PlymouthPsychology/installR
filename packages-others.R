@@ -13,8 +13,8 @@ suggested <- read_csv("package-data/packages-suggested.csv") %>% pull(Package)
 bayes <- read_csv("package-data/packages-bayes.csv") %>% pull(Package)
 #mathsstats <- read_csv("package-data/packages-maths-stats.csv") %>% pull(Package)
 
-utils::install.packages(suggested, Ncpus=ncores, quiet=QUIET)
-utils::install.packages(bayes, dependencies = T, Ncpus=ncores, quiet=T) # dependencies=T required for rstan
+utils::install.packages(suggested, Ncpus=ncores, quiet=F)
+utils::install.packages(bayes, dependencies = T, Ncpus=ncores, quiet=F) # dependencies=T required for rstan
 
 # utils::install.packages(mathsstats, Ncpus=ncores, quiet=QUIET)
 
