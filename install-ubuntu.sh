@@ -38,8 +38,7 @@ sudo apt-get install -y jags
 git clone https://github.com/PlymouthPsychology/installR
 cd installR
 
-sudo R --vanilla < packages-minimal.R
-sudo R --vanilla < packages-others.R
+sudo R --vanilla < installpackages.R
 
 } # end the install function
 

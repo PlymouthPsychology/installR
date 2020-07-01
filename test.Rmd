@@ -23,7 +23,7 @@ expect_equal(lme4::sleepstudy %>% summarize(m=mean(Days)) %>% pull(m), 4.5)
 
 ```{r}
 plt2 <- mtcars %>%
-  ggplot(aes(mpg, wt)) + geom_point() + 
+  ggplot(aes(mpg, wt)) + geom_point() +
   ggthemes::theme_tufte()
 expect_is(plt2, 'ggplot')
 plt2
@@ -63,13 +63,6 @@ expect_is(tab, "character")
 expect_match(tab, "colorspace") # match some of the output
 expect_match(tab, "tidyverse")
 
-ip %>% 
+ip %>%
   pander()
 ```
-
-
-
-
-
-
-
