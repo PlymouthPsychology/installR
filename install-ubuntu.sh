@@ -29,6 +29,9 @@ sudo apt-get install -y libcurl4-openssl-dev
 sudo apt-get install -y libxml2-dev
 sudo apt-get install -y pandoc
 sudo apt-get install -y libgsl-dev
+sudo apt-get install -y libudunits2-dev
+sudo apt-get install -y libgdal-dev
+sudo apt-get install -y libxt-dev libgtk2.0-dev libcairo2-dev xvfb xauth xfonts-base
 
 # note this will install latest packaged JAGS... see windows install intructions to match version exactly
 # http://mcmc-jags.sourceforge.net
