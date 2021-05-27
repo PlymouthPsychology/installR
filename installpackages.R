@@ -18,6 +18,13 @@ suggested <- read_csv("package-data/packages-suggested.csv") %>% pull(Package)
 bayes <- read_csv("package-data/packages-bayes.csv") %>% pull(Package)
 
 utils::install.packages(unique(c(minimal,suggested)), lib=LIB_PATH,  Ncpus=ncores)
+
+# Need to do rstan manually because it's so fussy, sigh.
+Sys.setenv(DOWNLOAD_STATIC_LIBV8 = 1)
+# install.packages("V8")
+install.packages('rstan', lib=LIB_PATH, repos = 'https://cloud.r-project.org/', dependencies = TRUE)
+install.packages('shinystan', lib=LIB_PATH, repos = 'https://cloud.r-project.org/', dependencies = TRUE)
+
 utils::install.packages(bayes, lib=LIB_PATH,  dependencies = T, Ncpus=ncores) # dependencies=T required for rstan
 
 # these github packages are also needed and not on cran
@@ -31,3 +38,5 @@ devtools::install_github('benwhalley/webex')
 installed.packages()%>%
   as_tibble() %>%
   write_csv('installed_packages_output.csv')
+
+rmarkdown::render('test.Rmd')
