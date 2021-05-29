@@ -15,8 +15,17 @@ echo "Please enter your computer password as required at the command prompt."
 echo "You may need to do this several times before the install is complete."
 sudo echo "..."
 
-sudo apt-key adv --keyserver keyserver.ubuntu.com:80 --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-sudo add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com:80/bin/linux/ubuntu xenial/'
+# instructions from https://cran.rstudio.com/
+# Here we use lsb_release -cs to access which Ubuntu flavor you run: one of “hirsuite”, “groovy”, “focal”, “bionic”
+# update indices
+sudo apt update -qq
+# install two helper packages we need
+sudo apt install --no-install-recommends software-properties-common dirmngr
+# import the signing key (by Michael Rutter) for these repo
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+# add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+
 sudo apt-get -y update
 
 sudo apt-get install -y git
