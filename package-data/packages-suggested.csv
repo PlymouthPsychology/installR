@@ -13,11 +13,13 @@ blavaan
 bookdown
 broom
 caret
+causaldata
 clustsig
 coefplot
 coin
 corrgram
 corrplot
+coxme
 crayon
 DAAG
 datapasta
