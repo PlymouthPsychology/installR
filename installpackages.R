@@ -1,6 +1,6 @@
 # Set the CRAN repo to a specific date to effectively snapshop and
 # avoid compatibility issues.
-options("repos" = "https://mran.microsoft.com/snapshot/2021-05-25")
+options("repos" = "https://mran.microsoft.com/snapshot/2021-06-17")
 
 ncores <- parallel::detectCores()-1
 LIB_PATH="/usr/lib/R/site-library"
