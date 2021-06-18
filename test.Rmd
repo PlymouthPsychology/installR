@@ -9,6 +9,11 @@ knitr::opts_chunk$set(echo = TRUE)
 library(testthat)
 ```
 
+
+
+
+
+
 The output of this file (an html document) can be checked against the version in the github repo to make sure everything is as expected.
 
 
