@@ -33,6 +33,7 @@ devtools::install_github('benwhalley/apastats',
     ref="44cf600ce2db186705c323276e523e11a610c0f0",
     subdir='apastats')
 
+devtools::install_github('benwhalley/psydata')
 devtools::install_github('benwhalley/webex')
 
 installed.packages()%>%
