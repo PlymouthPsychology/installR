@@ -41,6 +41,7 @@ sudo apt-get install -y jags
 git clone https://github.com/PlymouthPsychology/installR
 cd installR
 
+export LIB_PATH="/usr/lib/R/site-library"
 sudo R --vanilla < installpackages.R
 
 } # end the install function
