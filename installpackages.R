@@ -5,6 +5,7 @@ options("repos" = "https://mran.microsoft.com/snapshot/2021-06-17")
 ncores <- parallel::detectCores()-1
 
 LIB_PATH <- Sys.getenv('LIB_PATH')
+print(LIB_PATH)
 # LIB_PATH=.libPaths()[1]
 
 install.packages('tidyverse', lib=LIB_PATH,  Ncpus=ncores)
