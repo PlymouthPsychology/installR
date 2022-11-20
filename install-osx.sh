@@ -33,6 +33,8 @@ if test -z "$BASH_VERSION"; then
   exit 1
 fi
 
+export LIB_PATH="/usr/lib/R/site-library"
+
 R --vanilla < packages-minimal.R
 R --vanilla < packages-others.R
 
