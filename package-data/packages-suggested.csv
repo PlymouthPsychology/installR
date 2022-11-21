@@ -38,6 +38,7 @@ factoextra
 FactoMineR
 faux
 fdrtool
+fedmatch
 flextable
 foreach
 formatR
@@ -104,6 +105,7 @@ purrrlyr
 pwr
 qgraph
 reshape2
+revtools
 rfigshare
 rio
 rmarkdown
